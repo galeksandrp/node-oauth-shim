@@ -8,13 +8,13 @@ var app = express();
 app.all('/proxy', oauthshim);
 
 // Create a new file called "credentials.json", an array of objects containing {domain, client_id, client_secret, grant_url}
-var creds = require({
+var creds = [{
         "name": "twitter",
         "domain": process.env.DOMAIN,
         "client_id": process.env.TWITTER_CLIENT_ID,
         "client_secret": process.env.TWITTER_CLIENT_SECRET,
         "grant_url": "https://api.twitter.com/oauth/access_token"
-    });
+    }];
 
 // Initiate the shim with credentials
 oauthshim.init(creds);
